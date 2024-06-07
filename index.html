@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Courier New', monospace;
+        }
+        body {
+            background: url('https://i.imgur.com/8c0WtGB.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ecf0f1;
+            text-align: center;
+            position: relative;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        .content {
+            text-align: center;
+            font-size: 4em; /* Increased font size */
+            white-space: nowrap;
+            overflow: hidden;
+            position: absolute; /* Changed to absolute */
+            top: 50%; /* Positioned at the center vertically */
+            left: 50%; /* Positioned at the center horizontally */
+            transform: translate(-50%, -50%); /* Center alignment */
+            z-index: 1001; /* Ensure it's above other elements */
+            animation: typing 6s steps(60, end) infinite, blink-caret 0.75s step-end infinite; /* Animation */
+        }
+        @keyframes typing {
+            0%, 100% { 
+                width: 0;
+                border-right: 4px solid #ecf0f1; /* Visible cursor */
+            }
+            50% {
+                width: 100%;
+                border-right: none; /* Hide cursor at full text */
+            }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #ecf0f1; }
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: left;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .overlay h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .box {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .box h2 {
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+        .box ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+        .box li {
+            margin-bottom: 10px;
+        }
+        .box img.player-avatar {
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .loadingbar {
+            margin-top: 20px;
+        }
+        .loadingbar .progress {
+            background-color: #3498db;
+            height: 20px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .loadingbar .file {
+            font-style: italic;
+        }
+        .loadingbar .percentage {
+            font-weight: bold;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            Uploading Brain, please wait...
+        </div>
+    </div>
+
+    <div class="overlay">
+        <div class="box server-info">
+            <h2>Info</h2>
+            <ul>
+                <li>
+                    <img class="player-avatar" src="http://placehold.it/256x256" alt="Player Avatar">
+                    <p>
+                        Hello <strong>{playername}</strong>, welcome to {servername}, have fun and enjoy your session!
+                    </p>
+                </li>
+                <li>
+                    <i class="icon-map"></i> {mapname}
+                </li>
+                <li>
+                    <i class="icon-people"></i> {5}/10 players online
+                </li>
+                <li>
+                    <i class="icon-game-controller"></i> {Prop-Hunt}
+                </li>
+                <li>
+                    <i class="icon-social-steam"></i> {Sending client info...}
+                </li>
+            </ul>
+        </div>
+        <div class="box rules">
+            <h2>Rules</h2>
+            <ul>
+                <li>Don't spam mic/chat</li>
+                <li>Be friendly</li>
+                <li>No RDM'ing</li>
+                <li>No ghosting</li>
+            </ul>
+        </div>
+        <div class="loadingbar">
+            <div class="progress" style="width:14%"></div>
+            Downloading <span class="file">{materials/models/bobsModels/car.mdl}</span><span class="percentage">({filesLoaded}/{totalfiles}) {14}%</span>
+        </div>
+    </div>
+
+    <script>
+        // Simulate loading delay and then display the overlay
+        setTimeout(function() {
+            document.querySelector('.overlay').classList.add('active');
+        }, 5000); // Adjust the delay time as needed
+    </script>
+</body>
+</html>
