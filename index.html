@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading...</title>
+
+    <!-- HTTP headers (for server configuration) -->
+    <!--
+      X-Content-Type-Options: nosniff
+      X-Frame-Options: SAMEORIGIN
+      X-XSS-Protection: 1; mode=block
+      Cache-Control: no-cache
+    -->
+
     <style>
         html, body {
             height: 100%;
@@ -27,24 +36,24 @@
         }
         .content {
             text-align: center;
-            font-size: 4em; /* Increased font size */
+            font-size: 4em;
             white-space: nowrap;
             overflow: hidden;
-            position: absolute; /* Changed to absolute */
-            top: 50%; /* Positioned at the center vertically */
-            left: 50%; /* Positioned at the center horizontally */
-            transform: translate(-50%, -50%); /* Center alignment */
-            z-index: 1001; /* Ensure it's above other elements */
-            animation: typing 6s steps(60, end) infinite, blink-caret 0.75s step-end infinite; /* Animation */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1001;
+            animation: typing 6s steps(60, end) infinite, blink-caret 0.75s step-end infinite;
         }
         @keyframes typing {
-            0%, 100% { 
+            0%, 100% {
                 width: 0;
-                border-right: 4px solid #ecf0f1; /* Visible cursor */
+                border-right: 4px solid #ecf0f1;
             }
             50% {
                 width: 100%;
-                border-right: none; /* Hide cursor at full text */
+                border-right: none;
             }
         }
         @keyframes blink-caret {
@@ -67,10 +76,6 @@
         .overlay h1 {
             font-size: 2em;
             margin-bottom: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
         }
         .box {
             padding: 20px;
